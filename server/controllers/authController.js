@@ -14,6 +14,7 @@ const registerController = async (req, res) => {
         message: "email alredy exist",
       });
     }
+    
     // hashed password
 
     const salt = await bcrypt.genSalt(10);
@@ -46,6 +47,14 @@ const loginController = async (req, res) => {
       return res.status(404).send({
         success: false,
         message: "User Not Found",
+      });
+    }
+
+    //check role
+    if (user.role !== req.body.role) {
+      return res.status(500).send({
+        success: false,
+        message: "role doesnot match",
       });
     }
 
