@@ -1,13 +1,14 @@
 import React from "react";
 
-const InputType = ({
+
+function InputType ({
   labelFor,
   labelText,
   inputType,
   value,
-  onChange,
+  onchange,
   name,
-}) => {
+})  {
   return (
     <>
       <div className="mb-3">
